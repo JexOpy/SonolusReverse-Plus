@@ -3,16 +3,16 @@
         "title": "SonolusReverse v{0}",
         "title_dev": "SonolusReverse v{0} - {1} ({2})",
         "spoof": {
-            "title": "VIP và Chủ đề Spoof",
+            "title": "Giả mạo VIP và Chủ đề",
             "description": "Giả mạo VIP và Chủ đề phía máy khách. Bạn cần mở lại cài đặt để cập nhật Chủ đề và VIP."
         },
         "version_check": {
             "title": "Tắt tính năng kiểm tra phiên bản (trong Server)",
-            "description": "Vô hiệu hóa kiểm tra khả năng tương thích Server."
+            "description": "Vô hiệu hóa khả năng tương thích Server."
         },
         "theme": {
             "title": "Chủ đề tùy chỉnh",
-            "description": "Nút đang được bảo trì.\nChủ đề màu sắc sẽ được sử dụng. Bạn đã tải {0} chủ đề tùy chỉnh.\n\nCác tệp chủ đề nằm tại: {1}\n\nBạn có thể tìm hiểu thêm về chủ đề tùy chỉnh tại đây: {2}",
+            "description": "Tùy chọn chủ đề hiện đang được bảo trì.\nChủ đề màu sắc sẽ được sử dụng. Bạn đã tải {0} chủ đề tùy chỉnh.\n\nCác tệp chủ đề sẽ nằm tại: {1}\n\nBạn có thể tìm hiểu thêm về chủ đề tùy chỉnh tại đây: {2}",
             "refresh_button": "Làm mới",
             "import_button": "Nhập",
             "select_button": "Chọn",
@@ -24,11 +24,11 @@
         },
         "about": {
             "title": "Giới thiệu SonolusReverse",
-            "description": "SonolusReverse - Bản mod miễn phí và mã nguồn mở dành cho Sonolus. Hãy xem GitHub của chúng tôi và để lại ngôi sao nếu bạn thích!\n\nv{0} - {1} ({2})",
+            "description": "SonolusReverse - Bản mod miễn phí, mã nguồn mở dành cho Sonolus. Hãy xem GitHub của chúng tôi và để lại ngôi sao nếu bạn thích!\n\nv{0} - {1} ({2})",
             "update_button": "Cập nhật",
             "github_button": "GitHub",
             "popup": {
-                "checking": "Đang kiểm tra cập nhật...",
+                "checking": "Đang kiểm tra bản cập nhật...",
                 "update_available": "Đã có Phiên bản mới! Tải xuống trên GitHub Releases.",
                 "up_to_date": "Hiện tại, chưa có bản cập nhật nào."
             }
