@@ -1,12 +1,12 @@
 > [!WARNING]  
 > This Project is for **educational and research purposes only**. **Not affiliated with Sonolus**; using this mod may violate Sonolus' [TOS](https://sonolus.com/tos) and [EULA](https://sonolus.com/eula).  
 > **Use at your own risk.** I'm **NOT** responsible for bans or anything else that happens to you or your account.  
-> If you enjoy Sonolus, please consider supporting project by purchasing VIP or gems in-game.  
-> If you wanna contact me: see [Contact Me](#contact-me)
+> If you enjoy Sonolus, please consider supporting Sonolus by purchasing VIP or gems in-game.  
+> If you want to contact me: see [Contact Me](#contact-me)
 
 # SonolusReverse
 
-Mod for the [Sonolus](https://sonolus.com/) rhythm game with extra features, written using [Frida](https://frida.re/) and [frida-il2cpp-bridge](https://github.com/vfsfitvnm/frida-il2cpp-bridge)
+A Mod for the [Sonolus](https://sonolus.com/) rhythm game with extra features, written using [Frida](https://frida.re/) and [frida-il2cpp-bridge](https://github.com/vfsfitvnm/frida-il2cpp-bridge)
 
 Tested Sonolus version `1.1.2` on Android. Should work on iOS too, but **untested**.
 
@@ -15,112 +15,28 @@ Tested Sonolus version `1.1.2` on Android. Should work on iOS too, but **unteste
 <img src="assets/images/screenshot1.jpg" width="700" alt="SonolusReverse section in Settings">
 <img src="assets/images/screenshot2.jpg" width="700" alt="Themes shortcut & Themes spoofing">
 
-> `Rosé Pine 2`, `Everforest Dark` - A custom themes  
+> `Rosé Pine 2`, `Everforest Dark` - Custom themes  
 > `彗く星（しいたけ杯）` - An exclusive theme for tournament participants
 
 ## Features
 
 - **Custom Settings Section**
-- **VIP + Themes spoof**: Client-side unlock of VIP _(removes ad)_ and all themes _(including exclusives)_
-- **Version Spoof**: Override the version used by client compatibility checks
-- **Custom Themes**: Create your own themes in json format! See our [wiki](https://github.com/repinek/SonolusReverse/wiki)
+- **VIP + Themes spoof**: Client-side unlock of VIP _(removes ads)_ and all themes _(including exclusives)_
+- **Version Spoof**: Override the version used by the client compatibility checks
+- **Custom Themes**: Create your own themes in JSON format! See our [wiki](https://github.com/repinek/SonolusReverse/wiki)
 
 ##### Planned:
 
 See our [TODO](TODO.md). If you wanna contribute: see [Contributing](#contributing)
 
-## Building
+## Installation
 
-0. Download Sonolus executable and install npm dependencies.
-
-```bash
-npm install
-```
-
-1. Build a script
-
-```bash
-npm run build
-```
-
-Script will be built into `dist/agent.js`
-
-2. Patch Sonolus executable using Frida Gadget in **script** mode.  
-   I'm using [fgi](https://github.com/commonuserlol/fgi) to patch (APK only).
-
-```bash
-fgi -i <sonolus-apk> -t script -l dist/agent.js
-```
-
-## Developing
-
-0. Download Sonolus executable and install npm dependencies.
-
-```bash
-python -m venv .venv # Creating a virtual environment for Python
-
-# Activate Python venv, it's depending on what OS you are. For example Linux with fish:
-. .venv/bin/activate.fish
-
-pip install -r requirements.txt
-
-npm install
-```
-
-1. Patch Sonolus executable using Frida Gadget in **listen** mode _(or use frida-server)_.  
-   I'm using [fgi](https://github.com/commonuserlol/fgi) to patch (APK only).
-
-```bash
-fgi -i <sonolus-apk>
-```
-
-2. Build Script
-
-```bash
-npm run build:dev
-```
-
-Script will be built into `dist/agent.js`
-
-3. Spawn script
-
-```bash
-npm run spawn
-```
-
-NOTE: You can re-build script without re-launching game
-
-### Developer infrastructure
-
-- Wrappers for Sonolus Classes, UI
-- i18n ready
-- Webpack bundler with contiditional compilation _(ifdef)_
-- Pre-commit hooks
-- Auto-incrementing build version (MAJOR.MINOR.BUILD)
-- Simple, but yet enough Logger
-- JSON Config system
-- File Picker and Path Utils
-
-## Scripts
-
-**Build the script:**  
-Compile the agent into `./dist/agent.js`  
-`npm run build` - a **RELEASE** version _(minified, optimized, no debug logs)_  
-`npm run build:dev` - a **DEV** version
-`npm run build:nobump` - a **RELEASE** version without incrementing `.build-counter`
-
-`npm run spawn` - Inject a script into the game with the Gadget _(You need patched game with Gadget in **listen** mode and `Frida` Installed)_
-`npm run spawn:dev` - Build a **DEV** version and spawn
-`npm run spawn:release` - Build a **RELEASE** version and spawn
-
-`npm run prettier` - Runs [prettier](https://prettier.io/) to format code and files  
-`npm run lint` Runs [ESLint](https://eslint.org/) to static analyzes code with --fix arg
-
-\* from package.json
+Install as a regular `.apk` file, downloadable from the [GitHub Releases Page](https://github.com/repinek/SonolusReverse/releases/latest)
 
 ## Contributing
 
-Got ideas? Want to add localization? Found a bug? Pull requests and issues are welcome!
+Got ideas? Want to add localization? Found a bug? Pull requests and issues are welcome!  
+Please read our [Contributing Guide](CONTRIBUTING.md)
 
 ## Contact Me
 
