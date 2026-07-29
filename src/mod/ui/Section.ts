@@ -1,3 +1,4 @@
+import { FilePicker } from "../../engine/native/FilePicker";
 import { Path } from "../../engine/native/Path";
 import { Application } from "../../engine/wrappers/Application";
 import { SectionsHook } from "../../sonolus/routes/SectionsHook";
@@ -38,9 +39,10 @@ export class CustomSectionMod {
         const spoofField = this.spoofField();
         const versionField = this.versionField();
         const themeField = this.themeField();
+        const bgmField = this.bgmField();
         const aboutField = this.aboutField();
 
-        const rows = Rows.new().gap(20).children([title, spoofField, versionField, themeField, aboutField]);
+        const rows = Rows.new().gap(20).children([title, spoofField, versionField, themeField, bgmField, aboutField]);
 
         const section = CustomSection.new().content(rows).validate();
 
@@ -145,6 +147,48 @@ export class CustomSectionMod {
             .description(I18n.tRef("ui.about.description", ModPreferences.VERSION, ModPreferences.HASH, ModPreferences.ENV))
             .value(Dep.opImplicit(""))
             .btns([updateBtn, githubBtn])
+            .validate();
+    }
+
+    private static bgmField(): BtnField {
+        const importBtn = ImgLblBtn.new()
+            .title(I18n.tRef("ui.bgm.import_button"))
+            .icon(Dep.opImplicit(Assets.getAsset("Import")))
+            .onClick(() => {
+                FilePicker.pickFile(
+                    (path: Il2Cpp.String) => {
+                        if (!path.isNull() && path.content) {
+                            const filePath = path.content;
+                            const distPath = Path.customBgmDirectory + Path.getFileNameFromPath(filePath);
+
+                            Path.move(filePath, distPath);
+                            Config.customBgmPath = distPath;
+                            Config.save();
+                            PopupExtensions.showHelp(SectionsHook.router, I18n.t("ui.bgm.popup.success"));
+                        }
+                    },
+                    ["audio"]
+                );
+            })
+            .validate();
+
+        const resetBtn = ImgLblBtn.new()
+            .title(I18n.tRef("ui.bgm.reset_button"))
+            .icon(Dep.opImplicit(Assets.getAsset("IconStar")))
+            .onClick(() => {
+                Config.customBgmPath = "";
+                Config.save();
+                PopupExtensions.showHelp(SectionsHook.router, I18n.t("ui.bgm.popup.reset"));
+            })
+            .validate();
+
+        const resetBtnMargin = WidgetUtils.margin(resetBtn, 20, 0, 0, 0) as ImgLblBtn;
+
+        return BtnField.new()
+            .title(I18n.tRef("ui.bgm.title"))
+            .description(I18n.tRef("ui.bgm.description"))
+            .value(Dep.opImplicit(""))
+            .btns([importBtn, resetBtnMargin])
             .validate();
     }
 }

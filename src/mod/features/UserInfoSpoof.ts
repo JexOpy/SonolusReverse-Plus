@@ -22,6 +22,8 @@ export class UserInfoSpoof {
         "000010", // Mission S
         "000011", // Exfiltration
         "000012", // Royalty
+        "000013",
+        "000014",
         "100001" // 彗く星（しいたけ杯）- Exclusive theme
     ];
 
