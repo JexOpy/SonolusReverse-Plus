@@ -4,6 +4,7 @@ import { AssemblyHelper } from "./engine/AssemblyHelper";
 import { Config } from "./mod/data/Config";
 import { ModPreferences } from "./mod/data/ModPreferences";
 import { ThemeLoader } from "./mod/data/ThemeLoader";
+import { CustomBgm } from "./mod/features/CustomBgm";
 import { CustomThemes } from "./mod/features/CustomThemes";
 import { TitleLabel } from "./mod/features/TitleLabel";
 import { UpdateChecker } from "./mod/features/UpdateChecker";
@@ -53,6 +54,7 @@ function initMod(): void {
     I18n.init();
     UserInfoSpoof.init();
     CustomThemes.init();
+    CustomBgm.init();
     UpdateChecker.checkVersion();
 }
 
