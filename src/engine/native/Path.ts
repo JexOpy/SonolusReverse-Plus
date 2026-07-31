@@ -94,10 +94,6 @@ export class Path {
     }
 
     static get customBgmDirectory(): string {
-        const bgmPath = this.dataPath + "CustomBgm/";
-        if (!this.exists(bgmPath)) {
-            this.createDirectory(bgmPath);
-        }
-        return bgmPath;
+        return this.dataPath + "CustomBgm/";
     }
 }

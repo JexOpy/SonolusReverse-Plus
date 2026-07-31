@@ -161,6 +161,7 @@ export class CustomSectionMod {
                             const filePath = path.content;
                             const distPath = Path.customBgmDirectory + Path.getFileNameFromPath(filePath);
 
+                            Path.createDirectory(Path.customBgmDirectory);
                             Path.move(filePath, distPath);
                             Config.customBgmPath = distPath;
                             Config.save();
