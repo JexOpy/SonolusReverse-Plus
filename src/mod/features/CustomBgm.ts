@@ -3,6 +3,8 @@ import { Logger } from "../../utils/Logger";
 import { Config } from "../data/Config";
 
 export class CustomBgm {
+    private static _validatedPath: string = "";
+
     static init(): void {
         try {
             const bgmPlayerClass = Il2Cpp.domain.assembly("Assembly-CSharp").image.class("Sonolus.Audio.BgmPlayer");
@@ -12,10 +14,12 @@ export class CustomBgm {
             bgmPlayerClass.method("Create", 8).implementation = function (...args: any[]) {
                 const originalPath = (args[0] as Il2Cpp.String).content;
 
-                if (Config.customBgmPath && Path.exists(Config.customBgmPath)) {
-                    if (originalPath && originalPath.includes("BgmMain")) {
+                if (Config.customBgmPath) {
+                    if (Config.customBgmPath !== CustomBgm._validatedPath) {
+                        CustomBgm._validatedPath = Path.exists(Config.customBgmPath) ? Config.customBgmPath : "";
+                    }
+                    if (CustomBgm._validatedPath && originalPath && originalPath.includes("BgmMain")) {
                         Logger.debug(`[CustomBgm] Overriding Menu BGM -> ${Config.customBgmPath}`);
-
                         args[0] = Il2Cpp.string(Config.customBgmPath);
                         // Reset the loop offset (args[6]) which is normally ~15.36s for the default BGM
                         args[6] = 0.0;
