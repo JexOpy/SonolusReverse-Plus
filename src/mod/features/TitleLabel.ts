@@ -21,9 +21,9 @@ export class TitleLabel {
         if (TitleHook.inTitleSetup) {
             const value: Il2Cpp.String = Object.setPrototypeOf(title, Dep.prototype).value;
 
-            if (!value.isNull() && value.content === App.version) {
+            if (!value.isNull() && value.content === App.semVer) {
                 // or we can re-use value.content
-                const newTitle: Dep<Il2Cpp.String> = Dep.opImplicit(`Reverse | ${App.version}`);
+                const newTitle: Dep<Il2Cpp.String> = Dep.opImplicit(`Reverse | ${App.semVer}`);
                 return this.method<Il2Cpp.Object>("Title", 1).invoke(newTitle);
             }
         }

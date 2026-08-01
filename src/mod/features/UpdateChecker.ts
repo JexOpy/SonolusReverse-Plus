@@ -6,6 +6,8 @@ import { ModPreferences } from "../data/ModPreferences";
 interface VersionResponse {
     major: number;
     minor: number;
+    patch: number;
+    gameBump: number;
 }
 
 export class UpdateChecker {
@@ -21,8 +23,8 @@ export class UpdateChecker {
         try {
             const request = await UnityWebRequest.sendGet(Constants.VERSION_URL);
             const text = request.text;
-            const response = JSON.parse(text) as VersionResponse;
-            this._latestVersion = `${response.major}.${response.minor}.0`;
+            const { major, minor, patch, gameBump } = JSON.parse(text) as VersionResponse;
+            this._latestVersion = `${major}.${minor}.${patch}${gameBump ? `-${gameBump}` : ""}`;
             request.dispose();
             Logger.info(`[UpdateChecker::checkVersion] Latest version fetched: ${this._latestVersion}`);
         } catch (e) {

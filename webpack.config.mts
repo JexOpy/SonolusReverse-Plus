@@ -29,7 +29,9 @@ function hashDir(dir: string): string {
 }
 
 function getBaseVersion(): string {
-    return `${version.major}.${version.minor}`;
+    const base = `${version.major}.${version.minor}.${version.patch}`;
+    // If gameBump is 0 don't add it
+    return version.gameBump != 0 ? `${base}-${version.gameBump}` : base;
 }
 
 function bumpBuildNumber(noBump?: boolean): number {
@@ -60,10 +62,11 @@ export default function (env: WebpackEnv): Configuration {
     const isRelease = targetEnv === "release";
 
     const srcHash = hashDir("src/").slice(0, 12);
-    const buildVersion = `${getBaseVersion()}.${bumpBuildNumber(env.noBump)}`;
+    const buildVersion = getBaseVersion();
+    const buildCounter = bumpBuildNumber(env.noBump);
     const gitBranch = getGitBranch();
 
-    console.log(`BUILD INFO:\n- Version: ${buildVersion}\n- Environment: ${targetEnv}\n- Src hash: ${srcHash}\n`);
+    console.log(`BUILD INFO:\n- Version: ${buildVersion} (build ${buildCounter})\n- Environment: ${targetEnv}\n- Src hash: ${srcHash}\n`);
 
     const ifdef_options = {
         DEV: isDev,
@@ -80,6 +83,7 @@ export default function (env: WebpackEnv): Configuration {
             "process.env.BUILD_ENV": JSON.stringify(targetEnv),
             "process.env.BUILD_HASH": JSON.stringify(srcHash),
             "process.env.BUILD_VERSION": JSON.stringify(buildVersion),
+            "process.env.BUILD_COUNTER": JSON.stringify(buildCounter),
             "process.env.BUILD_BRANCH": JSON.stringify(gitBranch)
         })
     );

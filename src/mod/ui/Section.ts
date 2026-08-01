@@ -55,7 +55,7 @@ export class CustomSectionMod {
         // later this information will be in About Tab
         return SectionBase.createTitle(
             /// #if DEV
-            I18n.tRef("ui.title_dev", ModPreferences.VERSION, ModPreferences.HASH, ModPreferences.ENV),
+            I18n.tRef("ui.title_dev", ModPreferences.VERSION, ModPreferences.BUILD, ModPreferences.HASH, ModPreferences.ENV),
             /// #else
             // @ts-ignore
             I18n.tRef("ui.title", ModPreferences.VERSION)

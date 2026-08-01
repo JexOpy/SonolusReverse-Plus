@@ -11,14 +11,14 @@ export class Version {
         return minor ? Number(minor) : 0;
     }
 
-    static get build(): number {
-        const build = ModPreferences.VERSION.split(".").at(2);
-        return build ? Number(build) : 0;
+    static get patch(): number {
+        const patch = ModPreferences.VERSION.replace(/-/g, ".").split(".").at(2);
+        return patch ? Number(patch) : 0;
     }
 
     static isNewerThan(latest: string, current: string): boolean {
-        const l = latest.split(".").map(Number);
-        const c = current.split(".").map(Number);
+        const l = latest.replace(/-/g, ".").split(".").map(Number);
+        const c = current.replace(/-/g, ".").split(".").map(Number);
         for (let i = 0; i < Math.max(l.length, c.length); i++) {
             const lv = l[i] ?? 0;
             const cv = c[i] ?? 0;
