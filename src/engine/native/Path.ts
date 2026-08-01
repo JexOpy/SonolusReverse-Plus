@@ -75,8 +75,10 @@ export class Path {
 
     static move(sourcePath: string, distPath: string): void {
         Logger.debug(`[${this.tag}::move] sourcePath: ${sourcePath} distPath: ${distPath}`);
-        if (!Path.exists(sourcePath)) throw new Error("sourceFile not found");
+
+        if (!Path.exists(sourcePath)) throw new Error("sourcePath not found");
         if (Path.exists(distPath)) Path.delete(distPath); // overwrite
+
         Il2Cpp.corlib.class("System.IO.File").method("Move", 2).invoke(Il2Cpp.string(sourcePath), Il2Cpp.string(distPath));
     }
 
@@ -93,7 +95,7 @@ export class Path {
         return this.dataPath + this.CUSTOM_THEMES_DIRECTORY;
     }
 
-    static get customBgmDirectory(): string {
+    static get customBgmPath(): string {
         return this.dataPath + "CustomBgm/";
     }
 }
