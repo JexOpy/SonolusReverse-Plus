@@ -5,6 +5,7 @@ import { Logger } from "../../utils/Logger";
 interface ConfigData {
     spoofEnabled: boolean;
     versionCheck: boolean;
+    customBgmPath: string;
 }
 
 export class Config {
@@ -14,13 +15,18 @@ export class Config {
 
     static spoofEnabled: boolean = true;
     static versionCheck: boolean = false;
+    static customBgmPath: string = "";
 
     static load(): void {
         const path = Path.configFilePath;
         try {
+            // Looks messy tbh
+            // Maybe use `Object.assign(Config, data) instead this
+            // But not typed then
             const data = JSON.parse(File.readAllText(path)) as ConfigData;
+            const state = Config as unknown as Record<keyof ConfigData, unknown>;
             for (const key of Object.keys(data) as (keyof ConfigData)[]) {
-                Config[key] = data[key];
+                state[key] = data[key];
             }
         } catch {
             Logger.warn(`[${this.tag}::load] No config file found, using defaults`);
@@ -63,7 +69,8 @@ export class Config {
     private static get fields(): Record<string, unknown> {
         return {
             spoofEnabled: this.spoofEnabled,
-            versionCheck: this.versionCheck
+            versionCheck: this.versionCheck,
+            customBgmPath: this.customBgmPath
         };
     }
 }

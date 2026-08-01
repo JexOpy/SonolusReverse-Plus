@@ -22,6 +22,16 @@
                 "ok": "OK"
             }
         },
+        "bgm": {
+            "title": "Nhạc nền giao diện tùy chỉnh",
+            "description": "Thay đổi Nhạc nền giao diện ở menu. Khởi động lại game để áp dụng nhạc nền mới.",
+            "import_button": "Nhập",
+            "reset_button": "Đặt lại",
+            "popup": {
+                "success": "Đã nạp nhạc nền giao diện thành công! Khởi động lại game để áp dụng.",
+                "reset": "Đã khôi phục nhạc nền giao diện về mặc định! Khởi động lại game để áp dụng."
+            }
+        },
         "about": {
             "title": "Giới thiệu SonolusReverse",
             "description": "SonolusReverse - Bản mod miễn phí, mã nguồn mở dành cho Sonolus. Hãy xem GitHub của chúng tôi và để lại ngôi sao nếu bạn thích!\n\nv{0} - {1} ({2})",

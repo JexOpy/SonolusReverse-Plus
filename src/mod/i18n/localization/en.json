@@ -22,6 +22,16 @@
                 "ok": "OK"
             }
         },
+        "bgm": {
+            "title": "UI BGM",
+            "description": "Change the UI BGM in menu. Restart the game to apply changes.",
+            "import_button": "Import",
+            "reset_button": "Reset",
+            "popup": {
+                "success": "BGM loaded successfully! Restart game to apply.",
+                "reset": "Restored UI BGM to default! Restart game to apply."
+            }
+        },
         "about": {
             "title": "About SonolusReverse",
             "description": "SonolusReverse - Free and open source client-side modification for Sonolus. Check out our GitHub and leave a star if you like it!\n\nv{0} - {1} ({2})",

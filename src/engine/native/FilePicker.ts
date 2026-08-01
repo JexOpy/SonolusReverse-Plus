@@ -12,11 +12,13 @@ export class FilePicker {
     private static tag = "FilePicker";
 
     private static readonly MIME_MAP: Record<string, string> = {
-        json: "application/json"
+        json: "application/json",
+        audio: "audio/*"
     };
 
     private static readonly UTI_MAP: Record<string, string> = {
-        json: "public.json"
+        json: "public.json",
+        audio: "public.audio"
     };
 
     protected static _class: Il2Cpp.Class | null = null;
