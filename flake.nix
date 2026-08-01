@@ -40,6 +40,7 @@
           jre
           apksigner
           androidenv.androidPkgs.platform-tools
+          apkeditor
         ];
       
         # Create python venv and install python requirements and requirements_build

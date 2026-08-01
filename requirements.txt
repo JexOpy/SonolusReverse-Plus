@@ -1,2 +1,2 @@
-frida==17.9.3
-frida-tools==14.8.2
+frida==17.16.4
+frida-tools==14.10.4
