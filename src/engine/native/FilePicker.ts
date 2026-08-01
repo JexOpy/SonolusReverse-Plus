@@ -13,18 +13,12 @@ export class FilePicker {
 
     private static readonly MIME_MAP: Record<string, string> = {
         json: "application/json",
-        audio: "audio/*",
-        mp3: "audio/mpeg",
-        wav: "audio/wav",
-        ogg: "audio/ogg"
+        audio: "audio/*"
     };
 
     private static readonly UTI_MAP: Record<string, string> = {
         json: "public.json",
-        audio: "public.audio",
-        mp3: "public.mp3",
-        wav: "com.microsoft.waveform-audio",
-        ogg: "org.xiph.ogg-audio"
+        audio: "public.audio"
     };
 
     protected static _class: Il2Cpp.Class | null = null;
