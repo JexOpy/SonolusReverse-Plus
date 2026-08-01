@@ -80,11 +80,11 @@ export class CustomSectionMod {
             .title(I18n.tRef("ui.theme.title"))
             .description(I18n.tRef("ui.theme.description", ThemeLoader.loadedThemes.size, Path.customThemesPath, Constants.WIKI_URL))
             .value(SectionUtils.themeValueRef())
-            .btns([this.refreshBtn(), this.importBtn(), this.themeBtn()])
+            .btns([this.refreshThemeBtn(), this.importThemeBtn(), this.themeBtn()])
             .validate();
     }
 
-    private static refreshBtn(): ImgLblBtn {
+    private static refreshThemeBtn(): ImgLblBtn {
         return ImgLblBtn.new()
             .title(I18n.tRef("ui.theme.refresh_button"))
             .icon(Dep.opImplicit(Assets.getAsset("Refresh")))
@@ -92,7 +92,7 @@ export class CustomSectionMod {
             .validate();
     }
 
-    private static importBtn(): ImgLblBtn {
+    private static importThemeBtn(): ImgLblBtn {
         const btn = ImgLblBtn.new()
             .title(I18n.tRef("ui.theme.import_button"))
             .icon(Dep.opImplicit(Assets.getAsset("Import")))
@@ -150,6 +150,7 @@ export class CustomSectionMod {
             .validate();
     }
 
+    // TODO: add value to field (file name)
     private static bgmField(): BtnField {
         const importBtn = ImgLblBtn.new()
             .title(I18n.tRef("ui.bgm.import_button"))
@@ -159,9 +160,9 @@ export class CustomSectionMod {
                     (path: Il2Cpp.String) => {
                         if (!path.isNull() && path.content) {
                             const filePath = path.content;
-                            const distPath = Path.customBgmDirectory + Path.getFileNameFromPath(filePath);
+                            const distPath = Path.customBgmPath + Path.getFileNameFromPath(filePath);
 
-                            Path.createDirectory(Path.customBgmDirectory);
+                            Path.createDirectory(Path.customBgmPath);
                             Path.move(filePath, distPath);
                             Config.customBgmPath = distPath;
                             Config.save();
