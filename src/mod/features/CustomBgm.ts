@@ -30,8 +30,10 @@ export class CustomBgm {
         loop: boolean,
         loopTime: number,
         isPrecise: boolean
-    ) {
+    ): Il2Cpp.Object {
         Logger.hook("BgmPlayer::Create called");
+        if (path.isNull()) return this.method<Il2Cpp.Object>("Create", 8).invoke(path, startTime, bgmTime, speed, volume, loop, loopTime, isPrecise);
+
         const originalPath = path.content;
 
         if (CustomBgm.shouldOverride(originalPath)) {
@@ -42,7 +44,7 @@ export class CustomBgm {
             loopTime = 0.0;
         }
 
-        return this.method("Create", 8).invoke(path, startTime, bgmTime, speed, volume, loop, loopTime, isPrecise);
+        return this.method<Il2Cpp.Object>("Create", 8).invoke(path, startTime, bgmTime, speed, volume, loop, loopTime, isPrecise);
     }
 
     private static shouldOverride(originalPath: string | null): boolean {
