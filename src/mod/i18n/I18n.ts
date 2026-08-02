@@ -60,10 +60,27 @@ export class I18n {
     static t(key: string, ...args: (string | number)[]): string {
         if (!this.resolved) this.resolveLocale(); // Lazy init
 
-        const value = this.resolveKey(TRANSLATIONS[this.currentLocale], key);
+        const value = this.lookup(key);
         if (typeof value !== "string") return `MISSING: ${key}`;
 
         return this.format(value, ...args);
+    }
+
+    /** Resolves key with fallback to English, then to `MISSING: ${key}` */
+    private static lookup(key: string): string | undefined {
+        const current = this.resolveKey(TRANSLATIONS[this.currentLocale], key);
+        if (typeof current === "string") return current;
+
+        if (this.currentLocale !== this.fallbackLocale) {
+            const fallback = this.resolveKey(TRANSLATIONS[this.fallbackLocale], key);
+            if (typeof fallback === "string") {
+                Logger.warn(`[${this.tag}::lookup] "${key}" missing in "${this.currentLocale}", using fallback language`);
+                return fallback;
+            }
+        }
+
+        Logger.warn(`[${this.tag}::lookup] "${key}" missing in "${this.currentLocale}" and fallback language`);
+        return undefined;
     }
 
     /** Replaces {0}, {1} placeholders with provided arguments */

@@ -23,7 +23,7 @@ function logBanner(): void {
     const gameHash = Il2Cpp.application.version;
     const semVer = App.semVer;
 
-    Logger.infoGreen(`SonolusReverse v${VERSION} (build ${BUILD}) -${HASH} (${ENV}). Version Hash: ${gameHash} | Game Version: ${semVer}`);
+    Logger.infoGreen(`SonolusReverse v${VERSION} (build ${BUILD}) - ${HASH} (${ENV}). Version Hash: ${gameHash} | Game Version: ${semVer}`);
 
     if (FOR_GAME_VERSION !== semVer) {
         Logger.warn(`Sonolus version ${semVer} isn't supported by SonolusReverse. Script will still load, but things may break`);
