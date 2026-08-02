@@ -18,6 +18,7 @@ import { Config } from "../data/Config";
 import { Constants } from "../data/Constants";
 import { ModPreferences } from "../data/ModPreferences";
 import { ThemeLoader } from "../data/ThemeLoader";
+import { CustomBgm } from "../features/CustomBgm";
 import { UpdateChecker } from "../features/UpdateChecker";
 import { I18n } from "../i18n/I18n";
 import { Version } from "../utils/version";
@@ -166,6 +167,7 @@ export class CustomSectionMod {
                             Path.move(filePath, distPath);
                             Config.customBgmPath = distPath;
                             Config.save();
+                            CustomBgm.restartBgm();
                             PopupExtensions.showHelp(SectionsHook.router, I18n.t("ui.bgm.popup.success"));
                         }
                     },
@@ -180,6 +182,7 @@ export class CustomSectionMod {
             .onClick(() => {
                 Config.customBgmPath = "";
                 Config.save();
+                CustomBgm.restartBgm();
                 PopupExtensions.showHelp(SectionsHook.router, I18n.t("ui.bgm.popup.reset"));
             })
             .validate();
