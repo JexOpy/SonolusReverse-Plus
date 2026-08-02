@@ -24,12 +24,12 @@
         },
         "bgm": {
             "title": "UI BGM",
-            "description": "Change the UI BGM in menu. Restart the game to apply changes.",
+            "description": "Change the UI BGM in menu.",
             "import_button": "Import",
             "reset_button": "Reset",
             "popup": {
-                "success": "BGM loaded successfully! Restart game to apply.",
-                "reset": "Restored UI BGM to default! Restart game to apply."
+                "success": "BGM loaded successfully!",
+                "reset": "Restored UI BGM to default!"
             }
         },
         "about": {
