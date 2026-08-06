@@ -8,7 +8,7 @@
 
 A Mod for the [Sonolus](https://sonolus.com/) rhythm game with extra features, written using [Frida](https://frida.re/) and [frida-il2cpp-bridge](https://github.com/vfsfitvnm/frida-il2cpp-bridge)
 
-Tested Sonolus version `1.1.2` on Android. Should work on iOS too, but **untested**.
+Tested Sonolus version `1.1.3` on Android. Should work on iOS too, but **untested**.
 
 ## Screenshots
 
