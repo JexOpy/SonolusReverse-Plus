@@ -36,6 +36,7 @@
             "title": "About SonolusReverse",
             "description": "SonolusReverse - Free and open source client-side modification for Sonolus. Check out our GitHub and leave a star if you like it!\n\nv{0} - {1} ({2})",
             "update_button": "Check for Updates",
+            "discord_button": "Discord",
             "github_button": "GitHub",
             "popup": {
                 "checking": "Checking for updates...",

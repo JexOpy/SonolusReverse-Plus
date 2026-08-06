@@ -133,6 +133,16 @@ export class CustomSectionMod {
             })
             .validate();
 
+        let discordBtn = ImgLblBtn.new()
+            .title(I18n.tRef("ui.about.discord_button"))
+            .icon(Dep.opImplicit(Assets.getAsset("Link")))
+            .onClick(() => {
+                Application.openURL(Constants.DISCORD_URL);
+            })
+            .validate();
+
+        discordBtn = WidgetUtils.margin(discordBtn, 20, 0, 0, 0) as ImgLblBtn;
+
         let githubBtn = ImgLblBtn.new()
             .title(I18n.tRef("ui.about.github_button"))
             .icon(Dep.opImplicit(Assets.getAsset("Link")))
@@ -147,7 +157,7 @@ export class CustomSectionMod {
             .title(I18n.tRef("ui.about.title"))
             .description(I18n.tRef("ui.about.description", ModPreferences.VERSION, ModPreferences.HASH, ModPreferences.ENV))
             .value(Dep.opImplicit(""))
-            .btns([updateBtn, githubBtn])
+            .btns([updateBtn, discordBtn, githubBtn])
             .validate();
     }
 
