@@ -8,7 +8,9 @@
 
 A Mod for the [Sonolus](https://sonolus.com/) rhythm game with extra features, written using [Frida](https://frida.re/) and [frida-il2cpp-bridge](https://github.com/vfsfitvnm/frida-il2cpp-bridge)
 
-Tested Sonolus version `1.1.3` on Android. Should work on iOS too, but **untested**.
+The latest release **1.1.2** on **Android**: refer [Installation](#installation) (you can use it on `1.1.3` servers).
+
+`master` branch supports Sonolus version `1.1.3`.
 
 ## Screenshots
 
@@ -31,7 +33,10 @@ See our [TODO](TODO.md). If you wanna contribute: see [Contributing](#contributi
 
 ## Installation
 
-Install as a regular `.apk` file, downloadable from the [GitHub Releases Page](https://github.com/repinek/SonolusReverse/releases/latest)
+✅ **Android**: Install as a regular `.apk` file, downloadable from the [GitHub Releases Page](https://github.com/repinek/SonolusReverse/releases/latest)
+
+❌ **iOS**: Not fully supported: the script is written for iOS, but there's **no release build** and it's **untested** _(I don't have an iOS device)_.  
+There may also be other issues with patching functions: see [Frida issue #3650](https://github.com/frida/frida/issues/3650)
 
 ## Contributing
 
