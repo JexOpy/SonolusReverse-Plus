@@ -9,6 +9,7 @@ export class UserInfoSpoof {
     private static readonly SPOOFED_VIP_DURATION_DAYS = 1337;
     private static readonly MS_PER_DAY = 24 * 60 * 60 * 1000;
 
+    // You can discover it at https://content.sonolus.com/info.json
     private static readonly FALLBACK_THEMES = [
         "000001", // Retro Future
         "000002", // Under the Sakura Tree
@@ -22,6 +23,8 @@ export class UserInfoSpoof {
         "000010", // Mission S
         "000011", // Exfiltration
         "000012", // Royalty
+        "000013", // Dragon Boat
+        "000014", // Happy Birthday
         "100001" // 彗く星（しいたけ杯）- Exclusive theme
     ];
 
