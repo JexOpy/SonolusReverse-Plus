@@ -1,9 +1,12 @@
 import { FilePicker } from "../../../engine/native/FilePicker";
 import { Path } from "../../../engine/native/Path";
+import { System } from "../../../engine/System";
 import { SectionsHook } from "../../../sonolus/routes/SectionsHook";
 import { Assets } from "../../../sonolus/wrappers/Assets";
 import { Dep } from "../../../sonolus/wrappers/reactivity/Dep";
 import { Ref } from "../../../sonolus/wrappers/reactivity/Ref";
+import { Route } from "../../../sonolus/wrappers/routing/Route";
+import { SelectThemeRoute } from "../../../sonolus/wrappers/routing/SelectThemeRoute";
 import { Theme } from "../../../sonolus/wrappers/theme/Theme";
 import { ThemeSystem } from "../../../sonolus/wrappers/theme/ThemeSystem";
 import { BtnField } from "../../../sonolus/wrappers/ui/common/fields/BtnField";
@@ -81,7 +84,12 @@ function themeBtn(): ImgLblBtn {
     const btn = ImgLblBtn.new()
         .title(I18n.tRef("ui.theme.select_button"))
         .icon(Dep.opImplicit(Assets.getAsset("Theme")))
-        .enabled(false)
+        .onClick(() => {
+            const route = SelectThemeRoute.new();
+
+            const funcGetRoute = Il2Cpp.delegate(System.Func1.inflate(Route.class), () => route as Il2Cpp.Object);
+            SectionsHook.router.method<Il2Cpp.Object>("Push", 1).invoke(funcGetRoute);
+        })
         .validate();
 
     return WidgetUtils.margin(btn, 20, 0, 0, 0) as ImgLblBtn;
