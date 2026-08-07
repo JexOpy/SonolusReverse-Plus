@@ -1,6 +1,8 @@
 import { AssemblyHelper } from "../../../engine/AssemblyHelper";
 import { Widget } from "./Widget";
 
+// TODO: move this to classes like how it's actually work in Sonolus src
+
 /** `Sonolus.UI.WidgetUtils` - static helper class for `Sonolus.UI.Widget` */
 export class WidgetUtils {
     private static _class: Il2Cpp.Class | null = null;
