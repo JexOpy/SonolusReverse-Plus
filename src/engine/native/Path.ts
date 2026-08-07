@@ -87,6 +87,12 @@ export class Path {
         return fileName ? fileName : filePath;
     }
 
+    static getFileNameWithoutExtension(filePath: string): string {
+        const fileName = this.getFileNameFromPath(filePath);
+        const dotIndex = fileName.lastIndexOf(".");
+        return dotIndex > 0 ? fileName.substring(0, dotIndex) : fileName;
+    }
+
     static get configFilePath(): string {
         return this.dataPath + this.CONFIG_FILE;
     }

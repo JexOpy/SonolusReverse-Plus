@@ -26,7 +26,7 @@
             "title": "UI BGM",
             "description": "Change the UI BGM in menu.",
             "import_button": "Import",
-            "reset_button": "Reset",
+            "default": "Default",
             "popup": {
                 "success": "BGM loaded successfully!",
                 "reset": "Restored UI BGM to default!"

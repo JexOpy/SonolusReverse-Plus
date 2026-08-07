@@ -26,7 +26,7 @@
             "title": "Nhạc nền giao diện tùy chỉnh",
             "description": "Thay đổi Nhạc nền giao diện ở menu.",
             "import_button": "Nhập",
-            "reset_button": "Đặt lại",
+            "default": "Mặc định",
             "popup": {
                 "success": "Đã nạp nhạc nền giao diện thành công!",
                 "reset": "Đã khôi phục nhạc nền giao diện về mặc định!"

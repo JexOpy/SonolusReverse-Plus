@@ -3,6 +3,7 @@ import { Path } from "../../../engine/native/Path";
 import { SectionsHook } from "../../../sonolus/routes/SectionsHook";
 import { Assets } from "../../../sonolus/wrappers/Assets";
 import { Dep } from "../../../sonolus/wrappers/reactivity/Dep";
+import { Ref } from "../../../sonolus/wrappers/reactivity/Ref";
 import { BtnField } from "../../../sonolus/wrappers/ui/common/fields/BtnField";
 import { ImgBtn } from "../../../sonolus/wrappers/ui/common/ImgBtn";
 import { ImgLblBtn } from "../../../sonolus/wrappers/ui/common/ImgLblBtn";
@@ -12,6 +13,21 @@ import { Config } from "../../data/Config";
 import { CustomBgm } from "../../features/CustomBgm";
 import { I18n } from "../../i18n/I18n";
 import { createUndoBtn } from "../../utils/BtnHelpers";
+
+function displayName(path: string): string {
+    return path === "" ? I18n.t("ui.bgm.default") : Path.getFileNameWithoutExtension(path);
+}
+
+let bgmValueRef: Ref<Il2Cpp.String> | null = null;
+
+function getBgmValueRef(): Ref<Il2Cpp.String> {
+    if (!bgmValueRef) bgmValueRef = Ref.create(displayName(Config.customBgmPath));
+    return bgmValueRef;
+}
+
+function setBgmValue(path: string): void {
+    getBgmValueRef().value = Il2Cpp.string(displayName(path));
+}
 
 function importBtnOnClick(): () => void {
     return () => {
@@ -24,6 +40,7 @@ function importBtnOnClick(): () => void {
                     Path.createDirectory(Path.customBgmPath);
                     Path.move(filePath, distPath);
                     Config.customBgmPath = distPath;
+                    setBgmValue(distPath);
                     Config.save();
                     CustomBgm.restartBgm();
                     PopupExtensions.showHelp(SectionsHook.router, I18n.t("ui.bgm.popup.success"));
@@ -46,6 +63,7 @@ function undoBtn(): ImgBtn {
     const btn = createUndoBtn()
         .onClick(() => {
             Config.customBgmPath = "";
+            setBgmValue("");
             Config.save();
             CustomBgm.restartBgm();
             PopupExtensions.showHelp(SectionsHook.router, I18n.t("ui.bgm.popup.reset"));
@@ -55,12 +73,11 @@ function undoBtn(): ImgBtn {
     return WidgetUtils.margin(btn, 20, 0, 0, 0) as ImgBtn;
 }
 
-// TODO: add real value
 export function bgmField(): BtnField {
     return BtnField.new()
         .title(I18n.tRef("ui.bgm.title"))
         .description(I18n.tRef("ui.bgm.description"))
-        .value(Dep.opImplicit(""))
+        .value(getBgmValueRef())
         .btns([importBtn(), undoBtn() as ImgLblBtn])
         .validate();
 }
