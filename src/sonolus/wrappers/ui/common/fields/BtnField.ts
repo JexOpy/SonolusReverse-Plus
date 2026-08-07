@@ -27,6 +27,15 @@ export class BtnField extends Field {
         return this;
     }
 
+    /**
+     * Actually, you can pass in `btns` arguments not only ImgLblBtn  
+     * I don't know why Sonolus typed it as only ImgLblBtn, but you can use other widgets too  
+     *
+     * So for `ImgBtn` use:
+     * ```ts
+     * .btns([ImgBtn.new() as ImgLblBtn])
+     * ```
+     */
     btns(btns: ImgLblBtn[]): this {
         const buttonsArray = Il2Cpp.array<ImgLblBtn>(ImgLblBtn.class, btns.length);
         btns.forEach((btn, i) => buttonsArray.set(i, btn));

@@ -6,27 +6,21 @@ import { CompositeWidget } from "../CompositeWidget";
 import { BtnType } from "./BtnType";
 
 /**
- * `Sonolus.UI.Common.ImgLblBtn` - button with title and icon (extends CompositeWidget)
+ * `Sonolus.UI.Common.ImgBtn` - button with icon (extends CompositeWidget)
  *
- * @requires Title, Icon
+ * @requires Icon
  */
-export class ImgLblBtn extends CompositeWidget {
+export class ImgBtn extends CompositeWidget {
     protected static override _class: Il2Cpp.Class | null = null;
 
     static override get class(): Il2Cpp.Class {
-        return (this._class ??= AssemblyHelper.AssemblyCSharp.class("Sonolus.UI.Common.ImgLblBtn"));
+        return (this._class ??= AssemblyHelper.AssemblyCSharp.class("Sonolus.UI.Common.ImgBtn"));
     }
 
-    static new(): ImgLblBtn {
-        const obj = this._new<ImgLblBtn>();
-        obj.setRequired(["title", "icon"]);
+    static new(): ImgBtn {
+        const obj = this._new<ImgBtn>();
+        obj.setRequired(["icon"]);
         return obj;
-    }
-
-    title(title: Dep<Il2Cpp.String>): this {
-        this.method<void>("SetTitle", 1).invoke(title);
-        this.setMark("title");
-        return this;
     }
 
     icon(icon: Dep<Texture2D>): this {
