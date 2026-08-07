@@ -12,7 +12,7 @@
         },
         "theme": {
             "title": "Chủ đề tùy chỉnh",
-            "description": "Tùy chọn chủ đề hiện đang được bảo trì.\nChủ đề màu sắc sẽ được sử dụng. Bạn đã tải {0} chủ đề tùy chỉnh.\n\nCác tệp chủ đề sẽ nằm tại: {1}\n\nBạn có thể tìm hiểu thêm về chủ đề tùy chỉnh tại đây: {2}",
+            "description": "Chủ đề màu sắc sẽ được sử dụng. Bạn đã tải {0} chủ đề tùy chỉnh.\n\nCác tệp chủ đề sẽ nằm tại: {1}\n\nBạn có thể tìm hiểu thêm về chủ đề tùy chỉnh tại đây: {2}",
             "refresh_button": "Làm mới",
             "import_button": "Nhập",
             "select_button": "Chọn",
