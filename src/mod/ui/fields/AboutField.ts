@@ -10,7 +10,7 @@ import { Constants } from "../../data/Constants";
 import { ModPreferences } from "../../data/ModPreferences";
 import { UpdateChecker } from "../../features/UpdateChecker";
 import { I18n } from "../../i18n/I18n";
-import { okBtn } from "../../utils/PopupButtons";
+import { createOkBtn } from "../../utils/BtnHelpers";
 import { Version } from "../../utils/version";
 
 function updateBtnOnClick(): () => void {
@@ -18,7 +18,7 @@ function updateBtnOnClick(): () => void {
         UpdateChecker.checkVersion();
         const latest = UpdateChecker.latestVersion;
         if (!latest) {
-            PopupExtensions.showError(SectionsHook.router, I18n.t("ui.about.popup.checking"), [okBtn()]);
+            PopupExtensions.showError(SectionsHook.router, I18n.t("ui.about.popup.checking"), [createOkBtn()]);
             return;
         }
 

@@ -14,7 +14,7 @@ import { Constants } from "../../data/Constants";
 import { ThemeLoader } from "../../data/ThemeLoader";
 import { CustomThemes } from "../../features/CustomThemes";
 import { I18n } from "../../i18n/I18n";
-import { okBtn } from "../../utils/PopupButtons";
+import { createOkBtn } from "../../utils/BtnHelpers";
 
 function themeValueRef(): Ref<Il2Cpp.String> {
     // currentTheme: Ref<Theme> .value: Theme .title: Dep<Il2Cpp.String> .value: Il2Cpp.String .content: string | null
@@ -49,7 +49,7 @@ function onThemeImportPicked(): void {
                 const status = ThemeLoader.importTheme(distPath);
 
                 if (status !== 0) {
-                    PopupExtensions.showError(SectionsHook.router, I18n.t("ui.theme.popup.message_error"), [okBtn()]);
+                    PopupExtensions.showError(SectionsHook.router, I18n.t("ui.theme.popup.message_error"), [createOkBtn()]);
                 } else {
                     refreshThemes();
                 }

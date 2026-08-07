@@ -4,12 +4,14 @@ import { SectionsHook } from "../../../sonolus/routes/SectionsHook";
 import { Assets } from "../../../sonolus/wrappers/Assets";
 import { Dep } from "../../../sonolus/wrappers/reactivity/Dep";
 import { BtnField } from "../../../sonolus/wrappers/ui/common/fields/BtnField";
+import { ImgBtn } from "../../../sonolus/wrappers/ui/common/ImgBtn";
 import { ImgLblBtn } from "../../../sonolus/wrappers/ui/common/ImgLblBtn";
 import { PopupExtensions } from "../../../sonolus/wrappers/ui/popup/PopupExtensions";
 import { WidgetUtils } from "../../../sonolus/wrappers/ui/WidgetUtils";
 import { Config } from "../../data/Config";
 import { CustomBgm } from "../../features/CustomBgm";
 import { I18n } from "../../i18n/I18n";
+import { createUndoBtn } from "../../utils/BtnHelpers";
 
 function importBtnOnClick(): () => void {
     return () => {
@@ -40,10 +42,8 @@ function importBtn(): ImgLblBtn {
         .validate();
 }
 
-function resetBtn(): ImgLblBtn {
-    const btn = ImgLblBtn.new()
-        .title(I18n.tRef("ui.bgm.reset_button"))
-        .icon(Dep.opImplicit(Assets.getAsset("IconStar")))
+function undoBtn(): ImgBtn {
+    const btn = createUndoBtn()
         .onClick(() => {
             Config.customBgmPath = "";
             Config.save();
@@ -52,14 +52,15 @@ function resetBtn(): ImgLblBtn {
         })
         .validate();
 
-    return WidgetUtils.margin(btn, 20, 0, 0, 0) as ImgLblBtn;
+    return WidgetUtils.margin(btn, 20, 0, 0, 0) as ImgBtn;
 }
 
+// TODO: add real value
 export function bgmField(): BtnField {
     return BtnField.new()
         .title(I18n.tRef("ui.bgm.title"))
         .description(I18n.tRef("ui.bgm.description"))
         .value(Dep.opImplicit(""))
-        .btns([importBtn(), resetBtn()])
+        .btns([importBtn(), undoBtn() as ImgLblBtn])
         .validate();
 }
