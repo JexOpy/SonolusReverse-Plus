@@ -45,7 +45,7 @@ Please follow these steps to submit a translation for a new language:
    Navigate to `src/mod/i18n/localization/` and create a new `<lang>.json` file, where `<lang>` is your [ISO 639-1 language code](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)  
    Use existing language files in this directory as a template.
 
-2. Add your language to the code
+2. Add your language to the code  
    Open `src/mod/i18n/I18n.ts` to import your translation file and add it to the `TRANSLATIONS` record:
 
     ```ts
@@ -72,6 +72,9 @@ Please follow these steps to submit a translation for a new language:
 
         ```bash
         nix develop
+
+        # Install script dependencies for node.js
+        npm install
         ```
 
         It will automatically install Node.js, Python 3.14, JDK, Android Build Tools, set up the python virtual environment and install all python dependencies
@@ -100,7 +103,7 @@ Please follow these steps to submit a translation for a new language:
     ```
 
 2.  patch Sonolus APK using frida gadget in **script** mode.  
-    We are using [fgi](https://github.com/commonuserlol/fgi), but you can use [frida-gadget script](https://github.com/ksg97031/frida-gadget)
+    I'm using [fgi](https://github.com/commonuserlol/fgi), but you can use [frida-gadget script](https://github.com/ksg97031/frida-gadget), [objection](https://github.com/sensepost/objection) or any other method
 
     ```bash
     fgi -i <path-to-sonolus-apk> -t script -l dist/agent.js
@@ -120,7 +123,7 @@ These instructions are for developers who want to modify the script and test cha
     ```
 
 1.  Patch Sonolus APK using Frida Gadget in **listen** mode _(or use frida-server)_.  
-    We are using [fgi](https://github.com/commonuserlol/fgi), but you can use [frida-gadget script](https://github.com/ksg97031/frida-gadget)
+    I'm using [fgi](https://github.com/commonuserlol/fgi), but you can use [frida-gadget script](https://github.com/ksg97031/frida-gadget), [objection](https://github.com/sensepost/objection) or any other method
 
     ```bash
     fgi -i <path-to-sonolus-apk>
@@ -241,3 +244,5 @@ Follow these steps to submit a pull request:
 4. **Commit** your changes
 5. **Push** changes to your branch
 6. **Open** a pull request
+
+You can read more information here: [GitHub "Pull request" documentation](https://docs.github.com/en/pull-requests/reference/pull-requests) and [GitHub "Creating a pull request" documentation](https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/creating-a-pull-request)
