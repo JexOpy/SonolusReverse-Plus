@@ -30,9 +30,10 @@ For announcements and support join our community in Discord: [SonolusReverse Dis
 ## Features
 
 - **Custom Settings Section**
-- **VIP + Themes spoof**: Client-side unlock of VIP _(removes ads)_ and all themes _(including exclusives)_
+- **VIP + Themes spoof**: Client-side unlock of VIP _(removes ads)_ and all themes _(including exclusives)_. **Requires logged-in account**
 - **Version Spoof**: Override the version used by the client compatibility checks
 - **Custom Themes**: Create your own themes in JSON format! See our [wiki](https://github.com/repinek/SonolusReverse/wiki)
+- **Custom UI BGM**: Change UI Background Music to own!
 
 ##### Planned:
 
