@@ -6,11 +6,18 @@
 
 # SonolusReverse
 
+<a href="https://discord.gg/43FsKRzxnf">
+  <img src="https://img.shields.io/badge/Join%20Us%20on-Discord-blue?style=flat&logo=discord" alt="Discord">
+</a>
+<a href="https://github.com/repinek/SonolusReverse/releases/latest">
+    <img src="https://img.shields.io/badge/Download-latest-30c252?logo=github" alt="Download latest">
+</a>  
+<img src="https://github.com/repinek/SonolusReverse/actions/workflows/on-commit.yml/badge.svg" alt="Build Status">
+
 A Mod for the [Sonolus](https://sonolus.com/) rhythm game with extra features, written using [Frida](https://frida.re/) and [frida-il2cpp-bridge](https://github.com/vfsfitvnm/frida-il2cpp-bridge)
 
-The latest release **1.1.2** on **Android**: refer [Installation](#installation) (you can use it on `1.1.3` servers).
-
-`master` branch supports Sonolus version `1.1.3`.
+The latest release **1.1.3** on **Android**: refer [Installation](#installation)  
+For announcements and support join our community in Discord: [SonolusReverse Discord](https://discord.gg/43FsKRzxnf)
 
 ## Screenshots
 
