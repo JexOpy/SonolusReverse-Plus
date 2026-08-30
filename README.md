@@ -43,8 +43,10 @@ See our [TODO](TODO.md). If you wanna contribute: see [Contributing](#contributi
 
 ✅ **Android**: Install as a regular `.apk` file, downloadable from the [GitHub Releases Page](https://github.com/repinek/SonolusReverse/releases/latest)
 
-❌ **iOS**: Not fully supported: the script is written for iOS, but there's **no release build** and it's **untested** _(I don't have an iOS device)_.  
-There may also be other issues with patching functions: see [Frida issue #3650](https://github.com/frida/frida/issues/3650)
+⚠️ **iOS**: Currently in testing. The script is written for iOS, but there is **no release build**. You will need to build it from source.
+
+**An iOS build guide by [JexOpy](https://github.com/JexOpy) is available [here](https://gist.github.com/JexOpy/3aed12c92824921449ba68cb5b041133).**  
+**Note**: There may also be issues patching functions on recent iOS versions _(iOS 26+)_: see [Frida issue #3650](https://github.com/frida/frida/issues/3650). **It should work fine on older iOS versions.**
 
 ## Contributing
 
