@@ -4,7 +4,7 @@
 > If you enjoy Sonolus, please consider supporting Sonolus by purchasing VIP or gems in-game.  
 > If you want to contact me: see [Contact Me](#contact-me)
 
-# SonolusReverse
+# SonolusReverse-Plus by (JexOpy)
 
 <a href="https://discord.gg/43FsKRzxnf">
   <img src="https://img.shields.io/badge/Join%20Us%20on-Discord-blue?style=flat&logo=discord" alt="Discord">
@@ -55,7 +55,7 @@ Please read our [Contributing Guide](CONTRIBUTING.md)
 
 ## Contact Me
 
-My contacts are on my GitHub Profile - [@repinek](https://github.com/repinek/)
+My contacts are on my GitHub Profile - [@JexOpy](https://github.com/JexOpy/)
 
 ## License
 
