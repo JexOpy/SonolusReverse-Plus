@@ -9,7 +9,7 @@
 <a href="https://discord.gg/43FsKRzxnf">
   <img src="https://img.shields.io/badge/Join%20Us%20on-Discord-blue?style=flat&logo=discord" alt="Discord">
 </a>
-<a href="https://github.com/repinek/SonolusReverse/releases/latest">
+<a href="https://github.com/JexOpy/SonolusReverse-Plus/releases/lastest">
     <img src="https://img.shields.io/badge/Download-latest-30c252?logo=github" alt="Download latest">
 </a>  
 <img src="https://github.com/repinek/SonolusReverse/actions/workflows/on-commit.yml/badge.svg" alt="Build Status">
